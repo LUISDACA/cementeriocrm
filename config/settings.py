@@ -1,3 +1,5 @@
+import base64
+import binascii
 import os
 from pathlib import Path
 from urllib.parse import unquote, urlparse
@@ -13,9 +15,18 @@ if not SECRET_KEY:
         SECRET_KEY = "local-development-only-never-deploy-this-key"
     else:
         raise ImproperlyConfigured("Define DJANGO_SECRET_KEY antes de iniciar.")
-if not DEBUG and (len(SECRET_KEY) < 50 or SECRET_KEY.startswith("django-insecure-")):
+try:
+    # Render's generateValue creates a Base64-encoded 256-bit secret (44 chars).
+    secret_key_has_256_bits = len(base64.b64decode(SECRET_KEY, validate=True)) >= 32
+except (binascii.Error, UnicodeError, ValueError):
+    secret_key_has_256_bits = False
+if not DEBUG and (
+    (len(SECRET_KEY) < 50 and not secret_key_has_256_bits)
+    or SECRET_KEY.startswith("django-insecure-")
+):
     raise ImproperlyConfigured(
-        "En producción se exige un secreto aleatorio de al menos 50 caracteres."
+        "En producción se exige un secreto aleatorio de 50 caracteres o una "
+        "clave Base64 de al menos 256 bits."
     )
 ALLOWED_HOSTS = [
     host.strip()
