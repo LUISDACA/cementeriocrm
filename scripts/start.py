@@ -7,12 +7,16 @@ from pathlib import Path
 
 root = Path(__file__).resolve().parent.parent
 os.chdir(root)
+existing_python_path = os.environ.get("PYTHONPATH", "")
+python_path_entries = existing_python_path.split(os.pathsep) if existing_python_path else []
+if str(root) not in python_path_entries:
+    os.environ["PYTHONPATH"] = os.pathsep.join([str(root), *python_path_entries])
 for command in (
     [sys.executable, "manage.py", "check"],
     [sys.executable, "manage.py", "migrate", "--noinput"],
     [sys.executable, "manage.py", "collectstatic", "--noinput"],
 ):
-    subprocess.run(command, check=True)
+    subprocess.run(command, check=True, cwd=root)
 
 # Free-hosted academic demos cannot use an interactive shell for initial setup.
 # Seed only when the academic settings profile explicitly enables this flag.
@@ -25,15 +29,17 @@ if os.environ.get("CEMETERY_AUTO_SEED_DEMO") == "1":
 
     if not Space.objects.exists():
         subprocess.run(
-            [sys.executable, "manage.py", "seed_demo"], check=True
+            [sys.executable, "manage.py", "seed_demo"], check=True, cwd=root
         )
     for command in ("expand_demo_map", "generate_monthly_invoices"):
-        subprocess.run([sys.executable, "manage.py", command], check=True)
+        subprocess.run([sys.executable, "manage.py", command], check=True, cwd=root)
 
 os.execvp(
     "gunicorn",
     [
         "gunicorn",
+        "--chdir",
+        str(root),
         "config.wsgi:application",
         "--bind",
         f"0.0.0.0:{os.environ.get('PORT', '8000')}",
