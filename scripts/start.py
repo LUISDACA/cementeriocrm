@@ -21,6 +21,9 @@ for command in (
 # Free-hosted academic demos cannot use an interactive shell for initial setup.
 # Seed only when the academic settings profile explicitly enables this flag.
 if os.environ.get("CEMETERY_AUTO_SEED_DEMO") == "1":
+    import django
+
+    django.setup()
     from django.conf import settings
 
     if not getattr(settings, "ACADEMIC_MODE", False):
@@ -29,10 +32,10 @@ if os.environ.get("CEMETERY_AUTO_SEED_DEMO") == "1":
 
     if not Space.objects.exists():
         subprocess.run(
-            [sys.executable, "manage.py", "seed_demo"], check=True, cwd=root
+            [sys.executable, "manage.py", "seed_demo"], check=True
         )
     for command in ("expand_demo_map", "generate_monthly_invoices"):
-        subprocess.run([sys.executable, "manage.py", command], check=True, cwd=root)
+        subprocess.run([sys.executable, "manage.py", command], check=True)
 
 os.execvp(
     "gunicorn",
