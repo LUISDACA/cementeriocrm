@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Gasto {{ expense.number }}{% endblock %}
+{% block content %}
+<a href="{% url 'listing' 'gastos' %}" class="back-link">← Gastos operativos</a>
+<div class="page-heading">
+  <div><p class="eyebrow">GASTO OPERATIVO · {{ expense.get_category_display|upper }}</p><h1>{{ expense.number }}</h1><p class="subheading">{{ expense.description }}</p></div>
+</div>
+<section class="panel detail-panel">
+  <h2>Datos del pago</h2>
+  <dl>
+    <dt>Valor pagado</dt><dd>{{ expense.amount }} {{ currency }}</dd>
+    <dt>Fecha</dt><dd>{{ expense.paid_on|date:'d/m/Y' }}</dd>
+    <dt>Proveedor o entidad</dt><dd>{{ expense.supplier|default:'No indicado' }}</dd>
+    <dt>Referencia</dt><dd>{{ expense.reference|default:'No indicada' }}</dd>
+    <dt>Registrado por</dt><dd>{{ expense.created_by }}</dd>
+    <dt>Registrado el</dt><dd>{{ expense.created_at|date:'d/m/Y H:i' }}</dd>
+  </dl>
+</section>
+<section class="panel detail-panel">
+  <h2>Factura y soportes</h2>
+  {% if current_document %}
+    <div class="contact-card"><strong>Soporte actual · versión {{ current_document.version }}</strong><p>{{ current_document.file_name }} · cargado {{ current_document.uploaded_at|date:'d/m/Y H:i' }} por {{ current_document.uploaded_by }}</p><p>SHA-256: <code>{{ current_document.sha256 }}</code></p><a class="button small" href="{% url 'expense_document_download' expense.pk current_document.pk %}">Descargar soporte</a></div>
+  {% else %}<p class="muted">Aún no se adjuntan facturas ni comprobantes de este gasto.</p>{% endif %}
+  {% if documents|length > 1 %}<h3>Versiones anteriores</h3>{% for document in documents %}{% if not document.is_current %}<p>v{{ document.version }} · {{ document.file_name }} · {{ document.uploaded_at|date:'d/m/Y H:i' }} · <a href="{% url 'expense_document_download' expense.pk document.pk %}">Descargar</a></p>{% endif %}{% endfor %}{% endif %}
+  {% if access.finance %}<form method="post" enctype="multipart/form-data" action="{% url 'expense_document_upload' expense.pk %}" class="record-form">{% csrf_token %}{% include 'cemetery/form_fields.html' with form=document_form %}<div class="form-actions"><button class="button" type="submit">Adjuntar factura o soporte</button></div></form>{% endif %}
+  <p class="document-note">PDF, PNG o JPEG de hasta 8 MB. Los archivos son privados, quedan en el expediente y su carga se registra en auditoría. Conserva el original según las reglas contables aplicables.</p>
+</section>
+{% endblock %}

@@ -1,0 +1,6 @@
+Hola {{ name }},
+
+Para confirmar tu correo y activar tu cuenta familiar de CementerioERP, abre este enlace:
+{{ verification_url }}
+
+El enlace vence en tres días. La vinculación a contratos y sepulturas requiere verificación de identidad por parte de la administración.

@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% block content %}<div class="empty"><h1>No encontramos este registro</h1><p>Comprueba el enlace o vuelve al listado.</p><a href="{% url 'dashboard' %}" class="button">Volver al inicio</a></div>{% endblock %}{% block public %}<div class="auth-simple"><h1>Página no encontrada</h1><a href="{% url 'login' %}">Volver al ingreso</a></div>{% endblock %}

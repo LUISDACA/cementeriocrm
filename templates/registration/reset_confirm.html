@@ -1,0 +1,1 @@
+{% extends 'registration/auth_base.html' %}{% block auth_content %}<h1>Nueva contraseña</h1>{% if validlink %}<form method="post">{% csrf_token %}{{ form.as_p }}<button class="button">Guardar contraseña</button></form>{% else %}<p>Este enlace ya no es válido o fue utilizado.</p><a href="{% url 'password_reset' %}">Solicitar otro enlace</a>{% endif %}{% endblock %}

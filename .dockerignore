@@ -1,0 +1,14 @@
+.git
+.agents
+.codex
+.aws
+.venv
+.env
+**/__pycache__
+backups
+media
+staticfiles
+.academic-mail
+node_modules
+tests-js
+dist

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Cartera de facturas{% endblock %}
+{% block content %}
+<a href="{% url 'dashboard' %}" class="back-link">← Vista general</a>
+<div class="page-heading"><div><p class="eyebrow">TESORERÍA · CUENTAS POR COBRAR</p><h1>Cartera y vencimientos</h1><p class="subheading">Facturas con saldo pendiente al {{ today|date:'d/m/Y' }}.</p></div><a class="button secondary" href="?format=csv">Descargar CSV</a></div>
+<section class="portfolio-summary" aria-label="Saldos por vencimiento">
+  {% for bucket in buckets %}<article class="panel"><small>{{ bucket.label }}</small><strong>{{ bucket.balance }} {{ currency }}</strong><span>{{ bucket.count }} factura{{ bucket.count|pluralize:"s" }}</span></article>{% endfor %}
+</section>
+<section class="panel">
+  <div class="panel-heading"><div><h2>Facturas abiertas</h2><p class="quiet-note">{{ open_count }} facturas · saldo total {{ total_balance }} {{ currency }}</p></div></div>
+  <div class="table-scroll"><table><thead><tr><th>Factura</th><th>Responsable</th><th>Sepultura</th><th>Vence</th><th>Estado</th><th>Total</th><th>Abonado</th><th>Saldo</th><th>Mora</th></tr></thead><tbody>
+  {% for row in page %}<tr><td><a class="record-link" href="{% url 'invoice_detail' row.invoice.pk %}">{{ row.invoice.number }}</a></td><td>{{ row.invoice.contract.responsible.name }}</td><td>{{ row.invoice.contract.space.code }}</td><td>{{ row.invoice.due_on|date:'d/m/Y' }}</td><td>{{ row.bucket }}</td><td>{{ row.invoice.amount }}</td><td>{{ row.invoice.paid_total }}</td><td><strong>{{ row.balance }}</strong></td><td>{% if row.days_late %}{{ row.days_late }} días{% else %}—{% endif %}</td></tr>{% empty %}<tr><td colspan="9"><div class="empty"><strong>No hay saldos pendientes</strong><p>Las facturas abiertas aparecerán aquí para facilitar el seguimiento.</p></div></td></tr>{% endfor %}
+  </tbody></table></div>
+  {% if page.paginator.num_pages > 1 %}<nav class="pagination" aria-label="Paginación"><span>Página {{ page.number }} de {{ page.paginator.num_pages }}</span><div>{% if page.has_previous %}<a class="button secondary small" href="?page={{ page.previous_page_number }}">← Anterior</a>{% endif %}{% if page.has_next %}<a class="button secondary small" href="?page={{ page.next_page_number }}">Siguiente →</a>{% endif %}</div></nav>{% endif %}
+</section>
+<p class="document-note">Informe operativo calculado a partir de facturas y abonos registrados. No reemplaza la contabilidad ni la facturación tributaria.</p>
+{% endblock %}

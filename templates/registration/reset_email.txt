@@ -1,0 +1,5 @@
+Recibimos una solicitud para restablecer tu contraseña.
+Abre este enlace para elegir una nueva:
+{{ protocol }}://{{ domain }}{% url 'password_reset_confirm' uidb64=uid token=token %}
+
+Si no solicitaste este cambio, ignora este mensaje.

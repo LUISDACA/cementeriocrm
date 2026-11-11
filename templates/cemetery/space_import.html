@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Importar sepulturas{% endblock %}
+{% block content %}
+<a href="{% url 'listing' 'sepulturas' %}" class="back-link">← Sepulturas</a>
+<div class="page-heading"><div><p class="eyebrow">CARGA MASIVA DEL CATASTRO</p><h1>Importar sepulturas</h1><p class="subheading">Crea varias ubicaciones en una sola carga, con revisión previa.</p></div><a class="button secondary" href="{% url 'space_import_csv' %}">Descargar plantilla CSV</a></div>
+<section class="panel detail-panel">
+  <h2>Prepara el archivo</h2>
+  <p>Columnas obligatorias: <code>codigo,zona,bloque,fila,numero</code>. Los nombres de zona y bloque deben existir en el catálogo. Puedes crear bloques desde <strong>Administración → Bloques</strong>.</p>
+  <p>Opcionales: <code>tipo,condicion,x,y,observaciones</code>. Los códigos de tipo aceptan GRAVE, VAULT, OSSUARY o NICHE; las condiciones aceptan AVAILABLE, MAINTENANCE o OUT_OF_SERVICE. También puedes usar las etiquetas en español.</p>
+  {% if plan %}<div class="notice">Hay un plano de {{ plan.width }} × {{ plan.height }} px. Debes indicar x,y en píxeles para cada sepultura.</div>{% else %}<p>Sin plano de fondo, si dejas x,y vacíos se asignará una posición ilustrativa basada en el bloque, fila y número.</p>{% endif %}
+  <p>La importación solo crea registros nuevos: no cambia ni borra sepulturas existentes. Admite hasta 5.000 filas y 2 MB. Se verifican códigos, ubicaciones físicas y cruces de marcadores.</p>
+  <form method="post" enctype="multipart/form-data" class="record-form">{% csrf_token %}{% include 'cemetery/form_fields.html' %}<div class="form-actions"><a href="{% url 'listing' 'sepulturas' %}" class="button secondary">Cancelar</a><button class="button" type="submit">Revisar CSV</button></div></form>
+</section>
+{% if errors %}<section class="notice error" role="alert"><strong>No se puede importar el archivo.</strong><ul>{% for error in errors %}<li>{{ error }}</li>{% endfor %}</ul></section>{% endif %}
+{% if preview_count %}<section class="panel"><div class="panel-heading"><div><h2>Vista previa</h2><p class="quiet-note">{{ preview_count }} sepulturas nuevas; la tabla muestra hasta 100 filas.</p></div></div><div class="table-scroll"><table><thead><tr><th>Código</th><th>Zona / bloque</th><th>Fila / número</th><th>Tipo / condición</th><th>Coordenadas</th></tr></thead><tbody>{% for row in preview_rows %}<tr><td>{{ row.code }}</td><td>{{ row.zone }} / {{ row.block }}</td><td>{{ row.row }} / {{ row.number }}</td><td>{{ row.kind }} / {{ row.condition }}</td><td>{{ row.x }}, {{ row.y }}</td></tr>{% endfor %}</tbody></table></div><div class="panel-heading"><p class="muted">Al confirmar se crearán las {{ preview_count }} sepulturas. Cada registro genera su propia entrada de auditoría.</p></div><div class="form-actions"><form method="post" class="inline-action">{% csrf_token %}<input type="hidden" name="action" value="apply"><label class="checkbox-field"><input type="checkbox" name="confirm" value="yes" required> Revisé códigos, zonas, bloques y ubicaciones</label><button class="button" type="submit">Importar {{ preview_count }} sepulturas</button></form><form method="post">{% csrf_token %}<input type="hidden" name="action" value="cancel"><button class="button secondary" type="submit">Descartar vista previa</button></form></div></section>{% endif %}
+{% endblock %}

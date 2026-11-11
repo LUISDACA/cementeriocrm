@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block title %}Recibo P-{{ payment.pk }}{% endblock %}
+{% block content %}
+<a href="{% url 'family_portal' %}" class="back-link no-print">← Mi cuenta</a>
+<div class="page-heading no-print"><div><p class="eyebrow">COMPROBANTE INTERNO</p><h1>Recibo P-{{ payment.pk }}</h1><p class="subheading">{% if payment.voided_at %}Pago anulado{% else %}Pago registrado{% endif %}</p></div><button class="button secondary" data-print type="button">Imprimir recibo</button></div>
+<section class="panel detail-panel receipt"><div class="receipt-brand">{% include 'cemetery/brand.html' %}</div><p class="eyebrow">CementerioERP · COMPROBANTE INTERNO</p><strong class="receipt-amount">{{ payment.amount }} <small>{{ payment.invoice.contract.currency }}</small></strong><dl><dt>Fecha</dt><dd>{{ payment.paid_at|date:'d/m/Y H:i' }}</dd><dt>Método</dt><dd>{{ payment.get_method_display }}</dd><dt>Referencia</dt><dd>{{ payment.reference }}</dd><dt>Factura</dt><dd>{{ payment.invoice.number }}</dd><dt>Contrato</dt><dd>{{ payment.invoice.contract.number }}</dd><dt>Sepultura</dt><dd>{{ payment.invoice.contract.space.code }}</dd>{% if payment.voided_at %}<dt>Estado</dt><dd>Anulado el {{ payment.voided_at|date:'d/m/Y H:i' }} · {{ payment.void_reason }}</dd>{% endif %}</dl><p class="muted">Comprobante administrativo interno. No sustituye documentos tributarios que correspondan.</p></section>
+{% endblock %}

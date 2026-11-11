@@ -1,0 +1,13 @@
+{
+  "name": "cementerio-erp-interface-checks",
+  "private": true,
+  "scripts": {
+    "test": "node tests-js/map.test.cjs"
+  },
+  "devDependencies": {
+    "jsdom": "29.1.1"
+  },
+  "engines": {
+    "node": "^22.13.0 || >=24.0.0"
+  }
+}

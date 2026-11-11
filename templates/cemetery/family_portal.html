@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Mi cuenta familiar{% endblock %}
+{% block content %}
+<div class="page-heading"><div><p class="eyebrow">PORTAL FAMILIAR</p><h1>Hola, {{ user.first_name }}</h1><p class="subheading">Consulta privada de tus contratos, facturas y pagos.</p></div></div>
+<section class="panel detail-panel"><h2>Tu perfil</h2><dl><dt>Nombre</dt><dd>{{ user.get_full_name }}</dd><dt>Correo confirmado</dt><dd>{{ profile.verified_at|date:'d/m/Y H:i' }}</dd><dt>Documento</dt><dd>{{ profile.identification }}</dd><dt>Teléfono</dt><dd>{{ profile.phone }}</dd><dt>Dirección</dt><dd>{{ profile.address|default:'—' }}</dd></dl></section>
+{% if profile.responsible %}
+<section class="panel detail-panel"><h2>Sepulturas y contratos asociados</h2>
+  {% for row in contract_rows %}{% with contract=row.contract %}<div class="contact-card"><strong>{{ contract.number }} · {{ contract.space.code }}</strong><p>{{ contract.starts_on|date:'d/m/Y' }} — {{ contract.ends_on|date:'d/m/Y' }} · {{ contract.get_state_display }}</p><p>Valor {{ contract.amount }} {{ contract.currency }} · saldo del contrato {{ row.balance }} {{ contract.currency }}</p>{% if row.document %}<a href="{% url 'family_document_download' row.document.pk %}">Descargar copia firmada adjunta</a>{% endif %}</div>{% endwith %}{% empty %}<p class="muted">No hay contratos asociados a tu perfil.</p>{% endfor %}
+</section>
+<section class="panel detail-panel"><h2>Facturas y abonos</h2>
+  {% for row in invoice_rows %}{% with invoice=row.invoice %}<div class="contact-card"><strong>{{ invoice.number }} · {{ invoice.contract.space.code }}</strong><p>{{ invoice.description }} · Total {{ invoice.amount }} · Abonado {{ invoice.paid_total }} · Saldo {{ row.balance }} {{ invoice.contract.currency }} · {{ row.state }}</p>{% for payment in row.payments %}<small><a href="{% url 'family_receipt' payment.pk %}">Recibo P-{{ payment.pk }}</a> · {{ payment.amount }} · {{ payment.paid_at|date:'d/m/Y' }} · {{ payment.get_method_display }}</small><br>{% empty %}<small>Sin abonos registrados.</small>{% endfor %}</div>{% endwith %}{% empty %}<p class="muted">No tienes facturas asociadas.</p>{% endfor %}
+</section>
+{% else %}<section class="panel information"><p class="eyebrow">VERIFICACIÓN PENDIENTE</p><h2>Tu cuenta está activa</h2><p>Para proteger la información familiar, administración debe cotejar tu documento antes de vincular contratos, pagos o sepulturas. Presenta tu identificación en la oficina del cementerio.</p></section>{% endif %}
+{% endblock %}

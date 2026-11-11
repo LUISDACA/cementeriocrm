@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Capacidad por bloque{% endblock %}
+{% block content %}
+<a href="{% url 'listing' 'sepulturas' %}" class="back-link">← Sepulturas</a>
+<div class="page-heading"><div><p class="eyebrow">PLANEACIÓN DEL CEMENTERIO · {{ today|date:'d/m/Y' }}</p><h1>Capacidad por bloque</h1><p class="subheading">Disponibilidad actual según ocupaciones y reservas vigentes.</p></div><a class="button secondary" href="?format=csv">Descargar CSV</a></div>
+<section class="stats capacity-stats" aria-label="Totales del cementerio">
+  <article class="stat"><div>Sepulturas registradas</div><strong>{{ totals.total }}</strong><small>En todos los bloques</small></article>
+  <article class="stat"><div>Ocupadas</div><strong>{{ totals.occupied }}</strong><small>Con inhumación vigente</small></article>
+  <article class="stat"><div>Reservadas</div><strong>{{ totals.reserved }}</strong><small>Con reserva vigente</small></article>
+  <article class="stat"><div>Disponibles</div><strong>{{ totals.available }}</strong><small>Libres para asignar</small></article>
+</section>
+<section class="panel"><div class="panel-heading"><div><h2>Detalle por zona y bloque</h2><p class="quiet-note">Las categorías son excluyentes; una ocupación vigente prevalece sobre la condición administrativa.</p></div></div>
+  <div class="table-scroll"><table><thead><tr><th>Zona / bloque</th><th>Total</th><th>Ocupadas</th><th>Reservadas</th><th>Disponibles</th><th>Mantenimiento</th><th>Fuera de servicio</th><th>Ocupación</th></tr></thead><tbody>
+  {% for row in blocks %}<tr><td><strong>{{ row.zone }}</strong><br><small>{{ row.block }}</small></td><td>{{ row.total }}</td><td>{{ row.occupied }}</td><td>{{ row.reserved }}</td><td>{{ row.available }}</td><td>{{ row.maintenance }}</td><td>{{ row.out_of_service }}</td><td><div class="capacity-meter" role="img" aria-label="{{ row.occupancy_rate }} por ciento ocupado"><span style="width:{{ row.occupancy_rate }}%"></span></div><small>{{ row.occupancy_rate }}%</small></td></tr>{% empty %}<tr><td colspan="8"><div class="empty"><strong>No hay bloques registrados</strong><p>Crea zonas y bloques para organizar la capacidad.</p></div></td></tr>{% endfor %}
+  </tbody></table></div>
+</section>
+<p class="document-note">El informe cuenta espacios registrados. No incluye capacidad adicional de nichos o bóvedas que no esté modelada como sepulturas individuales.</p>
+{% endblock %}

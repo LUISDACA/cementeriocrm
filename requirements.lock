@@ -1,0 +1,12 @@
+# Versiones del entorno verificado; para recrear desde PyPI o un repositorio compatible.
+Django==5.2.18
+asgiref==3.10.0
+sqlparse==0.5.3
+psycopg==3.2.12
+whitenoise==6.11.0
+gunicorn==23.0.0
+argon2-cffi==25.1.0
+argon2-cffi-bindings==25.1.0
+cffi==2.0.0
+pycparser==3.12
+packaging==26.0

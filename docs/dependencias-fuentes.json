@@ -1,0 +1,144 @@
+{
+  "obtained": "2026-11-02",
+  "channel": "GitHub connector, official repositories",
+  "verification": "Each downloaded file verified against its Git blob SHA before use",
+  "source_files_verified": 1463,
+  "build": "Local wheels; CFFI and Argon2 bindings compiled locally. Django language catalogs limited to en/es/es_CO; unused Django admin static assets excluded.",
+  "sources": [
+    {
+      "package": "django",
+      "repository": "django/django",
+      "ref": "5.2.18",
+      "tree_sha": "3ae618c745df5b87053ad91588c72a4c8e646853"
+    },
+    {
+      "package": "asgiref",
+      "repository": "django/asgiref",
+      "ref": "3.10.0",
+      "tree_sha": "f587b122af17bdba5749c30b96d2237bc1c2dfdf"
+    },
+    {
+      "package": "sqlparse",
+      "repository": "andialbrecht/sqlparse",
+      "ref": "0.5.3",
+      "tree_sha": "ec0af5bf6345750d84274bc5c857d4a75b88619b"
+    },
+    {
+      "package": "psycopg",
+      "repository": "psycopg/psycopg",
+      "ref": "3.2.12",
+      "tree_sha": "1046c5447ebc5c9e166a3ae3089f3db61ad2d1dc"
+    },
+    {
+      "package": "whitenoise",
+      "repository": "evansd/whitenoise",
+      "ref": "6.11.0",
+      "tree_sha": "c9c06e9382b92fc959ffdfc3e2ec63057de82561"
+    },
+    {
+      "package": "argon2",
+      "repository": "hynek/argon2-cffi",
+      "ref": "25.1.0",
+      "tree_sha": "1fcae4fc1b7ff192b5ade54f6616771e5cf5f391"
+    },
+    {
+      "package": "argon2_bindings",
+      "repository": "hynek/argon2-cffi-bindings",
+      "ref": "25.1.0",
+      "tree_sha": "66f5b2340ef25699504bcc0f08eadcbefaf219aa"
+    },
+    {
+      "package": "cffi",
+      "repository": "python-cffi/cffi",
+      "ref": "v2.0.0",
+      "tree_sha": "6366c01d84e9a78e7e85f12ebe9760ba5d19b6d3"
+    },
+    {
+      "package": "gunicorn",
+      "repository": "benoitc/gunicorn",
+      "ref": "23.0.0",
+      "tree_sha": "411986d6191114dd1d1bbb9c72c948dbf0ef0425"
+    },
+    {
+      "package": "argon2_native",
+      "repository": "P-H-C/phc-winner-argon2",
+      "ref": "f57e61e19229e23c4445b85494dbf7c07de721cb",
+      "tree_sha": "f57e61e19229e23c4445b85494dbf7c07de721cb"
+    }
+  ],
+  "installed_versions": {
+    "Django": "5.2.18",
+    "asgiref": "3.10.0",
+    "sqlparse": "0.5.3",
+    "psycopg": "3.2.12",
+    "whitenoise": "6.11.0",
+    "gunicorn": "23.0.0",
+    "argon2-cffi": "25.1.0",
+    "argon2-cffi-bindings": "25.1.0",
+    "cffi": "2.0.0",
+    "pycparser": "3.12",
+    "packaging": "26.0"
+  },
+  "local_artifacts": [
+    {
+      "file": "Django-5.2.18-py3-none-any.whl",
+      "sha256": "018498c08a61bc1f2682b452cdbcae7f95f44dc8f51abbcbe930051b5e9ff8a7"
+    },
+    {
+      "file": "argon2_cffi-25.1.0-py3-none-any.whl",
+      "sha256": "1f7dcda13e257c12ac467f051e6914bc884b2a42d4e81f144ae2c3536e0bcf7c"
+    },
+    {
+      "file": "argon2_cffi_bindings-25.1.0-cp314-cp314-linux_x86_64.whl",
+      "sha256": "08f8fa26252a07911471ef69ace0907acfc9c6ff5fe342790d52aba5238a4ce3"
+    },
+    {
+      "file": "asgiref-3.10.0-py3-none-any.whl",
+      "sha256": "b5d715e316616426a4ca1f98798eb404c3bdbba96e2d81673705b8e9225aec14"
+    },
+    {
+      "file": "cffi-2.0.0-cp314-cp314-linux_x86_64.whl",
+      "sha256": "7b09fd7f593ceae998cdd63c47bf6a97946c49952256c841204a594c46b65cee"
+    },
+    {
+      "file": "gunicorn-23.0.0-py3-none-any.whl",
+      "sha256": "adf4e2bce9de635dc3e2449782b9242374e6a57907dbd55195fd71a375221312"
+    },
+    {
+      "file": "packaging-26.0-py3-none-any.whl",
+      "sha256": "25bb1022eae066a0ea1ae6cc6ccee914aa71952fdc96067eeef0c7c350289937"
+    },
+    {
+      "file": "psycopg-3.2.12-py3-none-any.whl",
+      "sha256": "b4cb91f4ad62584e9c3d98237dec95fe044e89e77526361b91d3625b318d0f7a"
+    },
+    {
+      "file": "pycparser-3.12-py3-none-any.whl",
+      "sha256": "eb160b75822f4177018910d7d6658d5d31a4e4ec9e78b4d7dd4481359ae0d561"
+    },
+    {
+      "file": "sqlparse-0.5.3-py3-none-any.whl",
+      "sha256": "f86e3c6dcc667f3cd45533dd606c6c1d2439f7b7dfc696b6ec4e95e18d69dd4a"
+    },
+    {
+      "file": "wheel-0.46.3-py3-none-any.whl",
+      "sha256": "a0cd599d6c4178e8d01d4e7c0d6a96a1188e7a69b46f7bb95f7c0e579a4ce8b9"
+    },
+    {
+      "file": "whitenoise-6.11.0-py3-none-any.whl",
+      "sha256": "f35228402582152796bfb75cc81fcd4c5add24a15cbb763ac6ace9c6af392fbc"
+    }
+  ],
+  "build_support": {
+    "pycparser": "Existing local uv cache, version 3.12",
+    "packaging": "Installed OS package, version 26.0",
+    "setuptools": "Local system wheel 78.1.1",
+    "wheel": "Installed OS package 0.46.3"
+  },
+  "pycparser_cache_verification": {
+    "repository": "eliben/pycparser",
+    "ref": "release_v3.12",
+    "tree_sha": "3ec766b7cd94724cba714296509604597ea4ce4e",
+    "matching_python_files": 7
+  }
+}

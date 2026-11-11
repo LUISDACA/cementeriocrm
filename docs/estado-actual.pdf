@@ -1,0 +1,136 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [6 0 R 8 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Length 4778 >>
+stream
+BT
+0.30 0.48 0.39 rg /F2 9 Tf 1 0 0 1 54 778.0 Tm (INFORME DE AVANCE \267 PROYECTO ACAD\311MICO) Tj
+0.08 0.29 0.22 rg /F2 29 Tf 1 0 0 1 54 755.1 Tm (CementerioERP) Tj
+0.26 0.35 0.29 rg /F1 15 Tf 1 0 0 1 54 714.8 Tm (Estado actual y ruta para preparar una) Tj
+0.26 0.35 0.29 rg /F1 15 Tf 1 0 0 1 54 695.0 Tm (futura operaci\363n real) Tj
+0.36 0.43 0.38 rg /F1 10 Tf 1 0 0 1 54 663.2 Tm (Corte: 3 de noviembre de 2026  \267  Django 5.2  \267  PostgreSQL) Tj
+0.08 0.29 0.22 rg /F2 12 Tf 1 0 0 1 54 635.0 Tm (CONCLUSI\323N) Tj
+0.14 0.22 0.18 rg /F1 11 Tf 1 0 0 1 54 615.2 Tm (La aplicaci\363n tiene una base funcional amplia para demostrar) Tj
+0.14 0.22 0.18 rg /F1 11 Tf 1 0 0 1 54 600.7 Tm (procesos de cementerio, pero no est\341 certificada ni preparada para) Tj
+0.14 0.22 0.18 rg /F1 11 Tf 1 0 0 1 54 586.2 Tm (operar con datos reales, cobrar dinero real o emitir documentos) Tj
+0.14 0.22 0.18 rg /F1 11 Tf 1 0 0 1 54 571.6 Tm (tributarios.) Tj
+0.08 0.29 0.22 rg /F2 17 Tf 1 0 0 1 54 545.1 Tm (Resumen ejecutivo) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 54 516.7 Tm (CementerioERP organiza el inventario de sepulturas y muestra flujos de personas,) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 54 503.5 Tm (responsables, contratos, reservas, pagos, movimientos y gastos. Incluye perfiles de) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 54 490.3 Tm (acceso, registro p\372blico de cuentas familiares, confirmaci\363n de correo, auditor\355a y) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 54 477.1 Tm (documentos privados.) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 54 460.9 Tm (La demostraci\363n utiliza datos sint\351ticos, una parcela ilustrativa y un buz\363n acad\351mico) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 54 447.7 Tm (local. Se pueden cargar planos y coordenadas propios, pero el proyecto no incluye el) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 54 434.5 Tm (plano de un cementerio real. El uso real exige definir reglas locales, adaptar) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 54 421.3 Tm (integraciones y validar la operaci\363n con el personal.) Tj
+0.08 0.29 0.22 rg /F2 17 Tf 1 0 0 1 54 405.1 Tm (Capacidades disponibles) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 62 377.6 Tm (Acceso y personas: Perfiles operativos; registro p\372blico familiar; confirmaci\363n de) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 62 364.4 Tm (correo; revisi\363n y vinculaci\363n administrativa.) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 62 348.2 Tm (Mapa e inventario: Mapa SVG con b\372squeda/zoom; carga privada de plano PNG; importaci\363n) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 62 335.0 Tm (CSV con vista previa; exportaci\363n e informes de capacidad.) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 62 318.8 Tm (Operaci\363n funeraria: Personas fallecidas, responsables, contratos, reservas con) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 62 305.6 Tm (anticipo, inhumaciones y flujo acad\351mico de exhumaci\363n/traslado.) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 62 289.4 Tm (Finanzas: Facturas internas, mensualidades configuradas, pagos parciales, recibos,) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 62 276.2 Tm (devoluciones registradas, gastos, cartera y libro de caja.) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 62 260.0 Tm (Documentos y auditor\355a: Adjuntos privados de contratos y gastos, versiones, huellas) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 62 246.8 Tm (SHA-256 y registro de cambios.) Tj
+0.08 0.29 0.22 rg /F2 13 Tf 1 0 0 1 54 230.6 Tm (Registro familiar) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 54 210.5 Tm (Cualquier persona puede crear una cuenta con su correo. Queda inactiva hasta confirmar) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 54 197.3 Tm (el enlace; luego, administraci\363n debe cotejar identidad y vincular los registros antes) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 54 184.1 Tm (de mostrar informaci\363n privada. En modo acad\351mico el mensaje queda en \253Correos) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 54 170.9 Tm (simulados\273, no sale a Internet.) Tj
+0.08 0.29 0.22 rg /F2 17 Tf 1 0 0 1 54 154.7 Tm (Mapa y datos) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 54 127.2 Tm (El lote de ejemplo contiene 432 sepulturas en bloques C\226H, con nombres veros\355miles y) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 54 114.0 Tm (c\363digos marcados como demostrativos. Es un escenario inventado: no representa) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 54 100.8 Tm (ubicaciones ni identidades reales. Administraci\363n puede cargar un plano autorizado y) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 54 87.6 Tm (ubicar los espacios. La importaci\363n CSV admite hasta 5.000 espacios por archivo, con) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 54 74.4 Tm (validaci\363n; no elimina ni altera los existentes.) Tj
+ET
+0.38 0.47 0.41 rg /F1 8 Tf 1 0 0 1 54 34 Tm (CementerioERP  ∑  Estado al 3 de noviembre de 2026  ∑  1) Tj
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Length 5060 >>
+stream
+BT
+0.08 0.29 0.22 rg /F2 17 Tf 1 0 0 1 54 778.0 Tm (L\355mites de correo, documentos y) Tj
+0.08 0.29 0.22 rg /F2 17 Tf 1 0 0 1 54 755.6 Tm (finanzas) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 62 728.1 Tm (Los contratos son plantillas imprimibles con espacio para firmas manuscritas. Adjuntar) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 62 714.9 Tm (una copia firmada no equivale a firma electr\363nica ni valida su autenticidad.) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 62 698.7 Tm (Facturas y recibos son internos; no son comprobantes tributarios autorizados. No hay) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 62 685.5 Tm (pasarela de pago ni movimiento de dinero.) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 62 669.3 Tm (El correo acad\351mico usa un buz\363n local. Correo real requiere SMTP, credenciales) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 62 656.1 Tm (protegidas, dominio y pruebas de entrega.) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 62 639.9 Tm (Impuestos, tarifas y procedimientos deben contrastarse con la normativa y pol\355ticas del) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 62 626.7 Tm (cementerio elegido.) Tj
+0.08 0.29 0.22 rg /F2 17 Tf 1 0 0 1 54 610.5 Tm (Seguridad y validaci\363n t\351cnica) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 54 583.1 Tm (Incluye permisos por perfil, contrase\361as administradas por Django, l\355mites de intentos,) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 54 569.9 Tm (controles de integridad, transacciones, documentos autenticados y auditor\355a. Son) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 54 556.7 Tm (controles implementados, no una certificaci\363n de seguridad.) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 62 540.5 Tm (Django check y compilaci\363n: sin errores en la verificaci\363n registrada.) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 62 524.3 Tm (Pruebas documentadas: perfil de verificaci\363n con 112 pruebas \(108 aprobadas y 4) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 62 511.1 Tm (omitidas\); tambi\351n hay comprobaciones seriales y de interfaz.) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 62 494.9 Tm (DDL y restricciones PostgreSQL: comprobados en instancia temporal seg\372n el registro) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 62 481.7 Tm (t\351cnico.) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 62 465.5 Tm (En esta sesi\363n no se pudo verificar la conexi\363n ORM ni el historial de migraciones) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 62 452.3 Tm (contra PostgreSQL.) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 62 436.1 Tm (El ZIP acad\351mico fue creado; no es un servicio desplegado.) Tj
+0.08 0.29 0.22 rg /F2 17 Tf 1 0 0 1 54 419.9 Tm (Qu\351 falta para una operaci\363n real) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 59 392.4 Tm (1. Definir cementerio, municipio/pa\355s, responsables y procesos vigentes.) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 59 376.2 Tm (2. Aprobar reglas para espacios, contratos, tarifas, reservas, devoluciones, movimientos) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 59 363.0 Tm (y conservaci\363n de documentos.) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 59 346.8 Tm (3. Preparar plano e inventario verificados; migrar informaci\363n con revisi\363n de) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 59 333.6 Tm (duplicados y conciliaci\363n.) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 59 317.4 Tm (4. Validar con asesor\355a local facturaci\363n, impuestos, firma aceptada, pagos y) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 59 304.2 Tm (conciliaci\363n bancaria.) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 59 288.0 Tm (5. Revisar privacidad y seguridad: base legal, retenci\363n, acceso m\355nimo, secretos,) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 59 274.8 Tm (vulnerabilidades e incidentes.) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 59 258.6 Tm (6. Desplegar con HTTPS, base respaldada, monitoreo, correo transaccional,) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 59 245.4 Tm (actualizaciones y soporte.) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 59 229.2 Tm (7. Capacitar, probar en paralelo, obtener aceptaci\363n formal y definir reversa antes de) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 59 216.0 Tm (producci\363n.) Tj
+0.08 0.29 0.22 rg /F2 13 Tf 1 0 0 1 54 199.8 Tm (Siguiente paso recomendado) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 54 179.7 Tm (Hacer una etapa de descubrimiento y piloto controlado. No cargar datos personales reales) Tj
+0.14 0.22 0.18 rg /F1 10 Tf 1 0 0 1 54 166.5 Tm (ni emitir cobros o documentos oficiales hasta cerrar y aprobar los puntos anteriores.) Tj
+0.32 0.39 0.34 rg /F1 9 Tf 1 0 0 1 54 150.3 Tm (Iniciar demostraci\363n: make demo \(con PostgreSQL disponible\). Direcci\363n local:) Tj
+0.32 0.39 0.34 rg /F1 9 Tf 1 0 0 1 54 138.4 Tm (http://127.0.0.1:8000. Revisa docs/entrega-academica.md y docs/operacion.md.) Tj
+0.40 0.45 0.41 rg /F1 8 Tf 1 0 0 1 54 120.5 Tm (Informe basado en README.md y la documentaci\363n del proyecto al corte indicado. No es) Tj
+0.40 0.45 0.41 rg /F1 8 Tf 1 0 0 1 54 110.0 Tm (auditor\355a independiente ni certificaci\363n legal, tributaria o de seguridad.) Tj
+ET
+0.38 0.47 0.41 rg /F1 8 Tf 1 0 0 1 54 34 Tm (CementerioERP  ∑  Estado al 3 de noviembre de 2026  ∑  2) Tj
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000127 00000 n 
+0000000224 00000 n 
+0000000326 00000 n 
+0000005156 00000 n 
+0000005292 00000 n 
+0000010404 00000 n 
+trailer
+<< /Size 9 /Root 1 0 R >>
+startxref
+10540
+%%EOF

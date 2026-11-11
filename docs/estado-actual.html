@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>CementerioERP — Estado actual</title>
+<style>
+@page { size: A4; margin: 18mm 17mm 18mm; @bottom-right { content: "CementerioERP · Estado al 3 de noviembre de 2026 · " counter(page); color: #65766b; font-size: 8pt; } }
+body { font-family: Carlito, Arial, sans-serif; color: #24342c; font-size: 10.5pt; line-height: 1.45; }
+h1 { color: #164c3c; font-size: 30pt; margin: 0 0 4mm; }
+h2 { color: #164c3c; font-size: 17pt; margin: 8mm 0 3mm; border-bottom: 1px solid #cbd8ce; padding-bottom: 2mm; }
+h3 { color: #24634f; font-size: 12pt; margin: 4mm 0 1mm; }
+p { margin: 2mm 0 3mm; }
+.cover { min-height: 230mm; display: flex; flex-direction: column; justify-content: center; }
+.eyebrow { color: #608575; text-transform: uppercase; letter-spacing: 2px; font-size: 9pt; font-weight: bold; }
+.lead { font-size: 15pt; color: #43574b; max-width: 155mm; }
+.badge { display: inline-block; background: #e8f1e8; color: #205b43; padding: 2mm 4mm; border-radius: 4mm; font-weight: bold; margin-top: 7mm; }
+.callout { background: #f1f5ef; border-left: 4px solid #28745a; padding: 4mm 5mm; margin: 4mm 0; }
+.warning { background: #fff5e4; border-left-color: #d49a32; }
+.grid { width: 100%; border-collapse: collapse; margin: 4mm 0; }
+.grid td { width: 50%; vertical-align: top; padding: 4mm; border: 1px solid #dbe3dc; }
+table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 3mm 0 5mm; }
+th { text-align: left; background: #eaf1eb; color: #174b39; }
+th, td { border: 1px solid #d9e1da; padding: 2.5mm 3mm; vertical-align: top; }
+ul, ol { margin: 1mm 0 4mm; padding-left: 7mm; }
+li { margin: 1mm 0; }
+.small { font-size: 9pt; color: #627267; }
+.page { page-break-before: always; }
+</style>
+</head>
+<body>
+<section class="cover">
+<p class="eyebrow">Informe de avance · Proyecto académico</p>
+<h1>CementerioERP</h1>
+<p class="lead">Estado actual de la aplicación, capacidades disponibles y trabajo necesario para preparar una futura operación real.</p>
+<span class="badge">Corte: 3 de noviembre de 2026</span>
+<p style="margin-top:18mm"><b>Tecnología:</b> Django 5.2 y PostgreSQL<br><b>Interfaz:</b> español, adaptable y con mapa interactivo<br><b>Alcance confirmado:</b> demostración académica con información sintética</p>
+<div class="callout warning"><b>Conclusión:</b> la aplicación tiene una base funcional amplia para demostrar procesos de cementerio, pero no está certificada ni preparada para operar con datos reales, cobrar dinero real o emitir documentos tributarios.</div>
+</section>
+
+<h2>Resumen ejecutivo</h2>
+<p>CementerioERP organiza el inventario de sepulturas y muestra flujos de personas, responsables, contratos, reservas, pagos, movimientos y gastos. Incluye perfiles de acceso, registro público de cuentas familiares, confirmación por correo, auditoría y documentos privados.</p>
+<p>La demostración conserva PostgreSQL y utiliza datos ficticios, una parcela ilustrativa y un buzón académico local. Se pueden cargar planos y coordenadas propios, pero el proyecto no incluye el plano de un cementerio real. El uso real exige definir las reglas locales, adaptar integraciones y validar la operación con el personal.</p>
+<table><tr><th>Área</th><th>Estado actual</th></tr>
+<tr><td>Aplicación y módulos</td><td>Implementados para demostración académica</td></tr>
+<tr><td>Datos e inventario</td><td>Datos de ejemplo sintéticos; admite importación de inventario</td></tr>
+<tr><td>Correo</td><td>Buzón simulado en modo académico; SMTP configurable en modo normal</td></tr>
+<tr><td>Pagos y facturas</td><td>Registro interno académico; sin pasarela ni autorización tributaria</td></tr>
+<tr><td>Uso productivo</td><td>No desplegado; falta validación legal, operativa y técnica</td></tr></table>
+
+<h2>Qué permite la aplicación</h2>
+<table><tr><th>Módulo</th><th>Capacidades disponibles</th></tr>
+<tr><td>Acceso y personas</td><td>Perfiles operativos; registro público familiar; confirmación de correo; revisión y vinculación administrativa de familiares.</td></tr>
+<tr><td>Mapa e inventario</td><td>Mapa SVG con búsqueda y zoom; carga privada de plano PNG; posiciones de sepulturas; importación CSV con vista previa y validaciones; exportación de inventario e informes de capacidad.</td></tr>
+<tr><td>Operación funeraria</td><td>Personas fallecidas, responsables, contratos, reservas con anticipo, inhumaciones y solicitudes/autorizaciones/ejecuciones de exhumación o traslado, según reglas académicas.</td></tr>
+<tr><td>Finanzas</td><td>Facturas internas, mensualidades configuradas, pagos parciales, recibos, devoluciones registradas, gastos operativos y vistas de cartera/libro de caja.</td></tr>
+<tr><td>Documentos y auditoría</td><td>Adjuntos privados para contratos y gastos, conservación de versiones y huellas SHA-256; registro de cambios y actividad.</td></tr></table>
+<div class="callout"><b>Registro familiar:</b> una persona puede crear una cuenta con su correo. La cuenta queda inactiva hasta confirmar el enlace; después, administración debe cotejar identidad y vincular los registros antes de mostrar información privada. El modo académico no envía correo a Internet: el mensaje aparece en «Correos simulados».</div>
+
+<h2>Mapa y datos de demostración</h2>
+<p>El lote de ejemplo contiene 432 sepulturas en bloques C–H, con nombres colombianos verosímiles y códigos/números marcados como demostrativos. Es un escenario inventado: no representa ubicaciones ni identidades reales. El mapa puede sustituirse por un plano autorizado y ubicar las sepulturas mediante el flujo de administración.</p>
+<p>La importación CSV permite agregar hasta 5.000 espacios por archivo, con vista previa y validación de códigos y ubicaciones. No elimina ni modifica espacios existentes. La calidad del mapa real dependerá de que el plano y las coordenadas se preparen y verifiquen en terreno.</p>
+
+<h2>Documentos, correo y finanzas: límites</h2>
+<ul>
+<li>Los contratos son plantillas imprimibles con condiciones editables y espacio para firmas manuscritas. El archivo firmado puede adjuntarse y versionarse; no es firma electrónica ni acredita autenticidad.</li>
+<li>Facturas y recibos son documentos internos de la demostración. No son comprobantes tributarios autorizados.</li>
+<li>Pagos, devoluciones y gastos se registran en el sistema; no se mueve dinero ni se conecta una pasarela o banco.</li>
+<li>El correo académico se almacena en un buzón local. Para correo real se necesita SMTP, credenciales protegidas, dominio y pruebas de entrega.</li>
+<li>Impuestos, mensualidades y procedimientos son configurables dentro del alcance existente, pero deben contrastarse con la normativa y políticas del cementerio elegido.</li>
+</ul>
+
+<div class="page"></div>
+<h2>Seguridad y validación técnica</h2>
+<p>La aplicación incluye permisos por perfil, contraseñas gestionadas por Django, límites de intentos, controles de integridad de datos, transacciones, documentos autenticados y auditoría. Estas medidas son parte de la implementación, no una certificación de seguridad.</p>
+<table><tr><th>Comprobación registrada</th><th>Resultado documentado</th></tr>
+<tr><td>Controles de Django y compilación</td><td>Sin errores en las comprobaciones registradas</td></tr>
+<tr><td>Pruebas de aplicación</td><td>112 pruebas en el perfil de verificación: 108 aprobadas y 4 omitidas; pruebas seriales y de interfaz también documentadas</td></tr>
+<tr><td>Esquema y restricciones PostgreSQL</td><td>DDL y restricciones comprobados en una instancia temporal según el registro técnico</td></tr>
+<tr><td>Operación local actual</td><td>La sesión de trabajo no pudo comprobar la conexión ORM/historial de PostgreSQL; la configuración local del usuario debe validarse en su equipo</td></tr>
+<tr><td>Entrega</td><td>ZIP académico creado; no es una instalación desplegada ni un servicio en producción</td></tr></table>
+<p class="small">Los resultados se resumen de docs/verificacion.md y README.md. Los resultados históricos no sustituyen una nueva validación en el equipo y base de datos donde vaya a ejecutarse.</p>
+
+<h2>Qué falta para que sea un sistema real</h2>
+<ol>
+<li><b>Definir el contexto:</b> cementerio, municipio y país; responsables del sistema; usuarios y procesos vigentes.</li>
+<li><b>Aprobar reglas:</b> tipos de sepultura, capacidad, contratos, tarifas, reservas, vencimientos, devoluciones, exhumaciones, traslados, archivos y retención documental.</li>
+<li><b>Preparar datos verificados:</b> plano autorizado, inventario completo, personas y contratos migrados con responsables; revisión de duplicados y conciliación.</li>
+<li><b>Validar finanzas y documentos:</b> asesoría contable/legal local, facturación electrónica cuando aplique, firma aceptada, impuestos y conciliación bancaria.</li>
+<li><b>Revisar privacidad y seguridad:</b> base legal y avisos, retención/borrado, acceso mínimo, cifrado, gestión de secretos, revisión de vulnerabilidades y respuesta a incidentes.</li>
+<li><b>Desplegar y operar:</b> hosting con HTTPS, base administrada y respaldos probados, monitoreo, correo transaccional, actualizaciones, soporte y recuperación ante desastres.</li>
+<li><b>Probar en paralelo:</b> capacitación, pruebas con personal, conciliación contra registros oficiales, aceptación formal y plan de reversa antes de migrar a producción.</li>
+</ol>
+<div class="callout warning"><b>Recomendación:</b> tratar el siguiente paso como una etapa de descubrimiento y piloto controlado. No cargar datos personales reales ni emitir cobros/documentos oficiales hasta cerrar y aprobar estos puntos.</div>
+
+<h2>Cómo iniciar la demostración</h2>
+<p>Con PostgreSQL disponible y el archivo local de configuración preparado, desde la carpeta del proyecto:</p>
+<pre style="background:#f1f5ef;padding:4mm">make demo</pre>
+<p>La aplicación se abre en <b>http://127.0.0.1:8000</b>. El comando prepara datos sintéticos y solicita una contraseña nueva para las cuentas de demostración. Para guía de exposición, consultar <i>docs/entrega-academica.md</i>; para operación y configuración, <i>docs/operacion.md</i>.</p>
+<p class="small">Este informe describe el alcance académico documentado del proyecto a la fecha de corte. No es una auditoría independiente, certificación legal, tributaria ni de seguridad.</p>
+</body></html>
