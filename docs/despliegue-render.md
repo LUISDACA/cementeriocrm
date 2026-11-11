@@ -1,40 +1,25 @@
-# Preparación de despliegue en Render
+# Demo gratuita temporal en Render
 
-Esta configuración propone una instancia independiente para CementerioERP. No adopta, modifica ni comparte la base o aplicación ImmunoClinic que ya existe en la cuenta Render.
+`render.yaml` crea recursos separados para una demo académica: servicio web gratuito y PostgreSQL gratuito en Virginia. No adopta ni modifica servicios de otros proyectos del espacio `My Workspace`.
 
-## Recursos propuestos
+## Qué hace
 
-- Servicio Docker `cementerioerp-web`, plan `0.5c-512mb`, región Virginia.
-- PostgreSQL 17, plan mínimo pagado `0.1c-256mb`, almacenamiento inicial de 1 GB, en Virginia.
-- Despliegue automático desde la rama `main`, comprobación de salud en `/salud/`.
-- `DJANGO_DEBUG=0`, clave Django generada por Render y movimientos operativos sin aprobar.
-- Variables SMTP solicitadas durante la primera configuración; sus valores no se guardan en Git.
+- Usa `config.settings_academic`, `DJANGO_DEBUG=0`, PostgreSQL 17 y HTTPS de Render.
+- Carga al iniciar el lote sintético académico: 432 sepulturas, personas ficticias, contratos y pagos de demostración.
+- Render solicita `DEMO_ADMIN_PASSWORD` durante la primera aplicación del Blueprint. Define ahí una contraseña propia de al menos 12 caracteres; no la guardes en Git.
+- La demo usa un buzón de correo simulado. No envía correo real ni necesita credenciales SMTP.
+- El repositorio no contiene `.env`, cuentas reales, adjuntos locales, respaldos ni base de datos.
 
-Los planos, contratos escaneados y soportes se guardan en campos binarios de PostgreSQL; no necesitan un disco local persistente. Según los precios publicados por Render al preparar este archivo, la referencia de cómputo mínimo es aproximadamente USD 7/mes para el servicio web y USD 6/mes para PostgreSQL, más USD 0,30/GB-mes por almacenamiento. Con 1 GB de base, el costo base estimado es USD 13,30/mes, antes de tarifa del espacio de trabajo, tráfico excedente e impuestos. El precio final debe revisarse en Render antes de aplicar el plan: https://render.com/pricing
+## Límites del nivel gratuito
 
-## Requisitos antes de crear los servicios
+Este destino es solo para demostración, no producción. Render duerme la web tras 15 minutos sin tráfico y puede tardar cerca de un minuto en reactivarla. PostgreSQL gratuito tiene 1 GB, vence a los 30 días y no cuenta con respaldos; Render puede reiniciar o hacer mantenimiento. Los cambios del buzón local se pierden al reiniciar. Los planos y soportes de documentos del sistema viven en PostgreSQL y desaparecen con la base cuando expire.
 
-1. Publicar este proyecto en un repositorio **privado** de GitHub/GitLab/Bitbucket. No subir `.env`, `media/`, `backups/`, base de datos, mensajes simulados ni contraseñas. `.gitignore` y `.dockerignore` ya excluyen los datos locales.
-2. Conceder a Render acceso de lectura al repositorio y configurar un remoto Git local funcional.
-3. Confirmar el espacio Render `My Workspace` antes de aplicar recursos. Allí ya existe otra aplicación; esta configuración crea nombres y recursos nuevos.
-4. Tener un proveedor SMTP y su remitente/dominio verificado. El formulario de alta no podrá entregar enlaces de confirmación si el correo saliente no se configura.
-5. Revisar y aprobar el gasto mensual estimado en la página del plan de Render.
+La cuenta creada para la demo usa roles académicos y datos ficticios. No registres información personal real, pagos reales ni documentos oficiales. El perfil académico simula los movimientos y el correo.
 
-La carpeta local actual no tiene historial/remoto Git válido y la sesión de `gh` local no está autenticada. Por ello, la configuración no se ha publicado y Render aún no puede crear el Blueprint. La conexión GitHub disponible permite consultar repositorios, pero no crear uno nuevo desde esta sesión.
+Fuente oficial de límites: https://render.com/docs/free
 
-## Configuración y puesta en marcha
+## Arranque
 
-`render.yaml` describe la infraestructura. `scripts/start.py` ejecuta `check`, migraciones, estáticos y Gunicorn; ahora toma el puerto de `PORT`. Django confía en el encabezado HTTPS del proxy cuando corre en Render y agrega el hostname de Render permitido.
+El contenedor ejecuta comprobaciones Django, migraciones, estáticos y Gunicorn en el puerto asignado por Render. Cuando `CEMETERY_AUTO_SEED_DEMO=1`, el proceso inicializa el conjunto sintético únicamente con `config.settings_academic`; los comandos no pueden cargar datos sintéticos en el perfil normal.
 
-Después de enlazar el repositorio, Render debe mostrar el plan antes de crear los servicios. Verificar que se creen solo `cementerioerp-web`, `cementerioerp-db` y el disco nuevo. Tras el primer despliegue:
-
-1. Completar `EMAIL_HOST`, `EMAIL_HOST_USER`, `EMAIL_HOST_PASSWORD` y `DEFAULT_FROM_EMAIL` en Environment, sin copiar secretos al repositorio.
-2. Crear el primer administrador mediante la Shell del servicio con `python manage.py createsuperuser`.
-3. Verificar `/salud/`, inicio de sesión, activación de cuenta con correo real, carga/lectura de documentos y una copia/restauración de PostgreSQL.
-4. Mantener el sistema sin datos reales hasta revisar privacidad, procedimientos, facturación y aceptación del responsable.
-
-## Límites
-
-Este Blueprint empieza con una instancia web y recursos pequeños; no constituye una arquitectura de alta disponibilidad. El tamaño de la base debe crecer con los adjuntos y respaldos. Es un punto de partida para un piloto pequeño, sujeto a aceptación del responsable y a las pruebas indicadas en la guía de operación.
-
-No se configura el perfil académico: su rutina de carga está diseñada para demostración local y exige contraseña interactiva. La instancia propuesta corre con `config.settings`, sin datos de demostración ni cuentas predeterminadas.
+El plan del Blueprint debe revisarse en Render antes de aplicarlo. Una demo en nivel gratuito no genera cómputo mensual, pero está sujeta a los límites y vencimiento anteriores. Para mantenerla después, habrá que cambiar a planes pagos, preparar correo SMTP, respaldos y una configuración no académica.

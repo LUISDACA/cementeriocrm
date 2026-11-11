@@ -4,14 +4,14 @@ services:
   - type: web
     name: cementerioerp-web
     runtime: docker
-    plan: 0.5c-512mb
+    plan: free
     region: virginia
     dockerfilePath: ./Dockerfile
     healthCheckPath: /salud/
     autoDeployTrigger: commit
     envVars:
       - key: DJANGO_SETTINGS_MODULE
-        value: config.settings
+        value: config.settings_academic
       - key: DJANGO_DEBUG
         value: "0"
       - key: DJANGO_SECRET_KEY
@@ -30,24 +30,15 @@ services:
         value: COP
       - key: CEMETERY_MOVEMENTS_APPROVED
         value: "0"
-      - key: EMAIL_HOST
-        sync: false
-      - key: EMAIL_PORT
-        value: "587"
-      - key: EMAIL_HOST_USER
-        sync: false
-      - key: EMAIL_HOST_PASSWORD
-        sync: false
-      - key: EMAIL_USE_TLS
+      - key: CEMETERY_AUTO_SEED_DEMO
         value: "1"
-      - key: DEFAULT_FROM_EMAIL
+      - key: DEMO_ADMIN_PASSWORD
         sync: false
 
 databases:
   - name: cementerioerp-db
     databaseName: cementerioerp
     user: cementerioerp
-    plan: 0.1c-256mb
-    diskSizeGB: 15
+    plan: free
     region: virginia
     postgresMajorVersion: "17"

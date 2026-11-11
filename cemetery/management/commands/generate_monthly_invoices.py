@@ -15,7 +15,7 @@ class Command(BaseCommand):
         parser.add_argument("--month", help="Mes a facturar en formato AAAA-MM; por defecto el mes actual.")
 
     def handle(self, *args, **options):
-        if not settings.DEBUG or not getattr(settings, "ACADEMIC_MODE", False):
+        if not getattr(settings, "ACADEMIC_MODE", False):
             raise CommandError("La emisión masiva está habilitada solo en el modo académico.")
         raw = options.get("month") or timezone.localdate().strftime("%Y-%m")
         try:

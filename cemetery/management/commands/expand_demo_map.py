@@ -19,7 +19,7 @@ class Command(BaseCommand):
 
     @transaction.atomic
     def handle(self, *args, **options):
-        if not settings.DEBUG or not getattr(settings, "ACADEMIC_MODE", False):
+        if not getattr(settings, "ACADEMIC_MODE", False):
             raise CommandError(
                 "El plano ampliado solo está disponible en el perfil académico."
             )

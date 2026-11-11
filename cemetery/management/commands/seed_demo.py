@@ -12,13 +12,13 @@ from cemetery.models import Block, Contract, Person, Responsible, Space, User, Z
 
 
 class Command(BaseCommand):
-    help = "Carga datos sintéticos únicamente en desarrollo. No borra información existente."
+    help = "Carga datos sintéticos en desarrollo o demostración académica. No borra información existente."
 
     @transaction.atomic
     def handle(self, *args, **options):
-        if not settings.DEBUG:
+        if not settings.DEBUG and not getattr(settings, "ACADEMIC_MODE", False):
             raise CommandError(
-                "La demostración solo puede cargarse con DJANGO_DEBUG=1."
+                "La carga sintética solo se permite en desarrollo o modo académico."
             )
         password = os.environ.get("DEMO_ADMIN_PASSWORD")
         if not password or len(password) < 12:
